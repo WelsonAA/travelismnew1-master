@@ -90,92 +90,93 @@ try{
             }
             loginmessage.setText("Wrong Password or User does not exist");
 
+        }
     }
 
-    @FXML
-    void gonext(MouseEvent event) throws Exception {
-        Stage stage = (Stage) hotel.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("hotelview.fxml"));
+        @FXML
+        void gonext (MouseEvent event) throws Exception {
+            Stage stage = (Stage) hotel.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hotelview.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
-    @FXML
-    void gonext2(MouseEvent event) throws Exception {
-        Stage stage = (Stage) flight.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("flightview.fxml"));
+        @FXML
+        void gonext2 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) flight.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("flightview.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
-    @FXML
-    void gonext3(MouseEvent event) throws Exception {
-        Stage stage = (Stage) tourguide.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("tourguideview.fxml"));
+        @FXML
+        void gonext3 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) tourguide.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("tourguideview.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
-    @FXML
-    void gonext4(MouseEvent event) throws Exception {
-        Stage stage = (Stage) activities.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("activitiesview.fxml"));
+        @FXML
+        void gonext4 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) activities.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("activitiesview.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
+            stage.setScene(new Scene(root));
+            stage.show();
 
-    }
+        }
 
-    @FXML
-    void gohome(MouseEvent event) throws Exception {
-        Stage stage = (Stage) Homepage.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        @FXML
+        void gohome (MouseEvent event) throws Exception {
+            Stage stage = (Stage) Homepage.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-
-
-    }
-
-    @FXML
-    void gohome2(MouseEvent event) throws Exception {
-        Stage stage = (Stage) Homepage2.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-
-        stage.setScene(new Scene(root));
-        stage.show();
+            stage.setScene(new Scene(root));
+            stage.show();
 
 
-    }
+        }
 
-    @FXML
-    void gohome3(MouseEvent event) throws Exception {
-        Stage stage = (Stage) Homepage3.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        @FXML
+        void gohome2 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) Homepage2.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
+            stage.setScene(new Scene(root));
+            stage.show();
 
-    @FXML
-    void gohome4(MouseEvent event) throws Exception {
-        Stage stage = (Stage) Homepage4.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    @FXML
-    void gocart(MouseEvent event) throws Exception {
-        Stage stage = (Stage) gotocart.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("shopping.fxml"));
+        }
 
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
+        @FXML
+        void gohome3 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) Homepage3.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        void gohome4 (MouseEvent event) throws Exception {
+            Stage stage = (Stage) Homepage4.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        @FXML
+        void gocart (MouseEvent event) throws Exception {
+            Stage stage = (Stage) gotocart.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("shopping.fxml"));
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
 
         @FXML
         void confirmbookingh (MouseEvent event) throws Exception {
@@ -246,18 +247,31 @@ try{
             hotelPrices.setText(prices);
         }
 
-    @FXML
-    public void showreqf(MouseEvent event) throws Exception {
-        String c1 = destcity.getText();
-        String pf = "";
-        for (int i = 0; i < Program.getFlights().size(); i++) {
-            if (c1.equals(Program.getFlights().get(i).getArriving_Airport())) {
-                pf += Program.getFlights().get(i).toString() + "\n";
+        @FXML
+        public void showreqf (MouseEvent event) throws Exception {
+            String c1 = destcity.getText();
+            String pf = "";
+            String flightnumber = "";
+            String depair = "";
+            String Arrair = "";
+            String aclass = "";
+            for (int i = 0; i < Program.getFlights().size(); i++) {
+                if (c1.equals(Program.getFlights().get(i).getArriving_Airport())) {
+                    pf += Program.getFlights().get(i).toString() + "\n";
+                    flightnumber+= Program.getFlights().get(i).getFlightno()+ "\n";
+                    depair += Program.getFlights().get(i).getDeparture_Airport() + "\n";
+                    Arrair += Program.getFlights().get(i).getArriving_Airport() + "\n";
+                    aclass += Program.getFlights().get(i).getClass()+ "\n";
+
+                    /*
+                    * WAITING FOR LABEL NAME HERE
+                    * 
+                    * */
+                }
             }
+            outputflight.setText(pf);
+            outputflight.setTextFill(Paint.valueOf("Black"));
         }
-        outputflight.setText(pf);
-        outputflight.setTextFill(Paint.valueOf("Black"));
-    }
 
         @FXML
         public void showCart (MouseEvent event) throws Exception {
@@ -281,5 +295,3 @@ try{
     }
 
 
-
-}
