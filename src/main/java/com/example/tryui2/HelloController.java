@@ -28,7 +28,7 @@ public class HelloController {
     @FXML
     private Button login;
     @FXML
-    private TextField username;
+    private TextField username = new TextField("");
     @FXML
     private PasswordField password;
     @FXML
