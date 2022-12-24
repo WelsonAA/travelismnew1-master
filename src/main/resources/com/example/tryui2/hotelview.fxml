@@ -30,7 +30,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="-2.0" layoutY="-1.0" prefHeight="566.0" prefWidth="172.0" style="-fx-background-color: #3F2B63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="-2.0" layoutY="-1.0" prefHeight="566.0" prefWidth="193.0" style="-fx-background-color: #3F2B63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="41.0" layoutY="39.0" prefHeight="42.0" prefWidth="107.0" text="Travellism">
                <font>
@@ -56,14 +56,18 @@
             <Button fx:id="Homepage" layoutX="39.0" layoutY="97.0" mnemonicParsing="false" onMouseClicked="#gohome" prefHeight="31.0" prefWidth="100.0" text="Home page" />
             <TextField fx:id="countryinhotel" layoutX="15.0" layoutY="174.0" />
             <Text fill="#fafafa" layoutX="19.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" />
-            <TextField fx:id="categoryhotel" layoutX="15.0" layoutY="236.0" />
-            <Text fill="#fafafa" layoutX="16.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="category:" />
-            <Button fx:id="confirmbooking" layoutX="39.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#confirmbookingh" text="confirm booking" />
+            <TextField fx:id="hotelChoice" layoutX="15.0" layoutY="236.0" />
+            <Text fill="#fafafa" layoutX="10.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Chosen(Enter Hotel Name)" />
+            <Button fx:id="confirmbooking" layoutX="30.0" layoutY="317.0" mnemonicParsing="false" onMouseClicked="#confirmbookingh" text="confirm booking" />
             <Button fx:id="addreq" layoutX="26.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#showreq" text="Add requirements" />
-            <Button fx:id="print" layoutX="62.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#printarraylist" text="print" />
+            <ImageView fitHeight="130.0" fitWidth="193.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/225ed955-70b1-41ed-91d5-7916616f5d2a.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <HBox layoutX="170.0" layoutY="138.0" prefHeight="48.0" prefWidth="619.0">
+      <HBox layoutX="191.0" layoutY="138.0" prefHeight="48.0" prefWidth="619.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="112.0" text="Rooms" />
             <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="130.0" text="Number of persons" />
@@ -72,6 +76,13 @@
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="complain" />
          </children>
       </HBox>
-      <Label fx:id="outputhotel" layoutX="200.0" layoutY="211.0" prefHeight="300.0" prefWidth="564.0" />
+      <Label fx:id="hotelNames" layoutX="200.0" layoutY="252.0" prefHeight="300.0" prefWidth="111.0" />
+      <Label layoutX="200.0" layoutY="193.0" prefHeight="31.0" prefWidth="139.0" text="Name" />
+      <Label fx:id="hotelCategories" layoutX="325.0" layoutY="252.0" prefHeight="300.0" prefWidth="122.0" />
+      <Label layoutX="325.0" layoutY="193.0" prefHeight="31.0" prefWidth="139.0" text="Category" />
+      <Label fx:id="hotelCities" layoutX="470.0" layoutY="252.0" prefHeight="300.0" prefWidth="139.0" />
+      <Label layoutX="470.0" layoutY="193.0" prefHeight="31.0" prefWidth="139.0" text="City" />
+      <Label fx:id="hotelPrices" layoutX="625.0" layoutY="252.0" onMouseClicked="#showreq" prefHeight="300.0" prefWidth="139.0" />
+      <Label layoutX="625.0" layoutY="193.0" prefHeight="31.0" prefWidth="139.0" text="Price" />
    </children>
 </AnchorPane>

@@ -19,12 +19,13 @@
          </children></Pane>
        <Pane prefHeight="144.0" prefWidth="198.0" style="-fx-background-color: #3F2B63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="32.0" layoutY="111.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="102.0" text="Home page" />
+            <Button fx:id="HomePage5" layoutX="32.0" layoutY="111.0" mnemonicParsing="false" onMouseClicked="#gohome5" prefHeight="31.0" prefWidth="102.0" text="Home page" />
             <Text layoutX="27.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Travellism" wrappingWidth="118.79998970031738">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
+            <Button fx:id="loadCart" layoutX="27.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#loadcartdata" text="Load Items" />
          </children></Pane>
       <Button fx:id="confirmpayment" layoutX="928.0" layoutY="636.0" mnemonicParsing="false" onMouseClicked="#showCart" text="confirm payment" />
       <Label fx:id="messagesuccesful" layoutX="939.0" layoutY="662.0" prefHeight="18.0" prefWidth="94.0" />

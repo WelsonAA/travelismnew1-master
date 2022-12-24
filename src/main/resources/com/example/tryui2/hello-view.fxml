@@ -35,6 +35,7 @@
             <Image url="@../../../Images/483-4830203_youll-grow-more-confident-and-excel-when-given.png" />
          </image>
       </ImageView>
+      <Label fx:id="usernow" layoutX="462.0" layoutY="28.0" prefHeight="47.0" prefWidth="179.0" text="Label" />
 
    </children>
 </AnchorPane>

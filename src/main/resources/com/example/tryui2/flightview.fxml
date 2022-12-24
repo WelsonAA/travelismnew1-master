@@ -47,6 +47,11 @@
             <TextField fx:id="classcatg" layoutX="12.0" layoutY="275.0" />
             <Button fx:id="addreqf" layoutX="34.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#showreqf" text="Add requirements" />
             <Button fx:id="confirmflight" layoutX="38.0" layoutY="421.0" mnemonicParsing="false" onMouseClicked="#confirmbookingf" text="confirm Booking" />
+            <ImageView fitHeight="101.0" fitWidth="260.0" layoutX="14.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/cairo-city-egypt-2020.jpg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="198.0" prefHeight="109.0" prefWidth="514.0" style="-fx-background-color: #7156DC;" AnchorPane.leftAnchor="196.60000000000002" AnchorPane.rightAnchor="0.0">
@@ -59,6 +64,11 @@
             <ImageView fitHeight="101.0" fitWidth="224.0" layoutX="219.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Images/Travel.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="173.0" fitWidth="241.0" layoutX="581.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/225ed955-70b1-41ed-91d5-7916616f5d2a.jpg" />
                </image>
             </ImageView>
          </children>

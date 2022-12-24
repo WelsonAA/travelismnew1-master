@@ -32,7 +32,5 @@ G.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml,a\b\ab
 Tryui2.iml,f\9\f9d23a3a82ade57b015d52031db036f4321dbc27
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
-\
-,src/main/java/com/example/tryui2/Person.java,b\f\bf20d9ab3570892d935c73e241dedb5adb0e25e6
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

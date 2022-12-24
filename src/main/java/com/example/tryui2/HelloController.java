@@ -2,6 +2,7 @@ package com.example.tryui2;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,7 +15,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class HelloController {
-    private String user;
     @FXML
     private Button hotel;
     @FXML
@@ -42,23 +42,21 @@ public class HelloController {
     @FXML
     private Button Homepage4;
     @FXML
-    private Button confirmbooking;
+    private Button confirmbooking, HomePage5;
     @FXML
     private Button confirmflight;
-    @FXML
-    private Button print;
-    @FXML
-    private Label outputhotel;
+
+
     @FXML
     private TextField countryinhotel;
     @FXML
     private Button addreq;
     @FXML
-    private TextField destcity;
+    private TextField destcity, hotelChoice;
     @FXML
     private Button addreqf;
     @FXML
-    private Label outputflight;
+    private Label outputflight, usernow;
     @FXML
     private Button confirmpayment;
     @FXML
@@ -69,6 +67,8 @@ public class HelloController {
     private Label Scart11;
     @FXML
     private Label loginmessage;
+    @FXML
+    private Label hotelNames, hotelCategories, hotelCities, hotelPrices;
 
     @FXML
     void gonext0(MouseEvent event) throws Exception {
@@ -77,15 +77,18 @@ public class HelloController {
 
         for (int i = 0; i < Program.getTourists().size(); i++) {
             if ((Program.getTourists().get(i).getUsername().equals(tmpU)) && (Program.getTourists().get(i).getPassword().equals(tmpP))) {
-                user = tmpU;
+try{
+   usernow.setText(tmpU);
+}catch(Exception e){
+
+}
                 Stage stage = (Stage) login.getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
                 stage.setScene(new Scene(root));
                 stage.show();
+
             }
-        }
-        loginmessage.setText("Wrong Password or User does not exist");
-        //TODO: create a label to show wrong password or not existing user
+            loginmessage.setText("Wrong Password or User does not exist");
 
     }
 
@@ -174,49 +177,74 @@ public class HelloController {
         stage.show();
     }
 
-    @FXML
-    void confirmbookingh(MouseEvent event) throws Exception {
-
-        Stage stage = (Stage) confirmbooking.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("shopping.fxml"));
-
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    void confirmbookingf(MouseEvent event) throws Exception {
-        Stage stage = (Stage) confirmflight.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("shopping.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    public void printarraylist(MouseEvent event) throws Exception {
-
-        String s = "";
-
-        for (int i = 0; i < Program.getHotels().size(); i++) {
-            s += Program.getHotels().get(i).toString() + "\n";
-        }
-        outputhotel.setText(s);
-        outputhotel.setTextFill(Paint.valueOf("Red"));
-    }
-
-    @FXML
-    public void showreq(MouseEvent event) throws Exception {
-        String c = countryinhotel.getText();
-        String p = "";
-        for (int i = 0; i < Program.getHotels().size(); i++) {
-
-            if (c.equals(Program.getHotels().get(i).getCity())) {
-                p += Program.getHotels().get(i).toString() + "\n";
+        @FXML
+        void confirmbookingh (MouseEvent event) throws Exception {
+            String c = hotelChoice.getText();
+            for (int i = 0; i < Program.getHotels().size(); i++) {
+                if (c.equals(Program.getHotels().get(i).gethotelName())) {
+                    for (int j = 0; j < Program.getTourists().size(); j++) {
+                        if (username.getText().equals(Program.getTourists().get(j).getUsername())) {
+                            Program.getTourists().get(j).additem(Program.getHotels().get(i));
+                        }
+                    }
+                }
             }
+
+            Stage stage = (Stage) confirmbooking.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
         }
-        outputhotel.setText(p);
-        outputhotel.setTextFill(Paint.valueOf("Black"));
-    }
+        @FXML
+        void loadcartdata (MouseEvent event){
+            String s = "";
+            for (int j = 0; j < Program.getTourists().size(); j++) {
+                if (username.getText().equals(Program.getTourists().get(j).getUsername())) {
+                    s = Program.getTourists().get(j).getcart().showItems();
+                }
+            }
+            Scart11.setText(s);
+            Scart11.setTextFill(Paint.valueOf("Black"));
+        }
+
+        @FXML
+        void confirmbookingf (MouseEvent event) throws Exception {
+
+            Stage stage = (Stage) confirmflight.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("shopping.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        public void showreq (MouseEvent event) throws Exception {
+            String c = countryinhotel.getText();
+            String names = "";
+            String categories = "";
+            String cities = "";
+            String prices = "";
+
+            for (int i = 0; i < Program.getHotels().size(); i++) {
+                if (c.equals(Program.getHotels().get(i).getCity())) {
+                    names += Program.getHotels().get(i).gethotelName() + "\n";
+                    categories += Program.getHotels().get(i).getGuestcategory() + "\n";
+                    cities += Program.getHotels().get(i).getCity() + "\n";
+                    prices += Program.getHotels().get(i).getPrice() + "\n";
+                }
+            }
+            if (c.equals("")) {
+                for (int i = 0; i < Program.getHotels().size(); i++) {
+                    names += Program.getHotels().get(i).gethotelName() + "\n";
+                    categories += Program.getHotels().get(i).getGuestcategory() + "\n";
+                    cities += Program.getHotels().get(i).getCity() + "\n";
+                    prices += Program.getHotels().get(i).getPrice() + "\n";
+                }
+            }
+            hotelNames.setText(names);
+            hotelCategories.setText(categories);
+            hotelCities.setText(cities);
+            hotelPrices.setText(prices);
+        }
 
     @FXML
     public void showreqf(MouseEvent event) throws Exception {
@@ -231,17 +259,26 @@ public class HelloController {
         outputflight.setTextFill(Paint.valueOf("Black"));
     }
 
-    @FXML
-    public void showCart(MouseEvent event) throws Exception {
-        String psh = "";
-        for (int i = 0; i < Program.getTourists().size(); i++) {
-            if (Program.getTourists().get(i).getUsername().equals(user)) {
-                psh = Program.getTourists().get(i).getcart().showItems();
+        @FXML
+        public void showCart (MouseEvent event) throws Exception {
+            String psh = "";
+            for (int i = 0; i < Program.getTourists().size(); i++) {
+                if (Program.getTourists().get(i).getUsername().equals(username.getText())) {
+                    psh = Program.getTourists().get(i).getcart().showItems();
+                }
             }
+            Scart11.setText(psh);
+            Scart11.setTextFill(Paint.valueOf("Black"));
         }
-        Scart11.setText(psh);
-    }
+        @FXML
+        public void gohome5 (MouseEvent event )throws Exception {
+            Stage stage = (Stage) HomePage5.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+    }
 
 
 
